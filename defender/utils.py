@@ -116,11 +116,14 @@ def increment_key(key):
     return new_value
 
 
-def get_username_from_request(request):
+def username_from_request(request):
     """ unloads username from default POST request """
     if config.USERNAME_FORM_FIELD in request.POST:
         return request.POST[config.USERNAME_FORM_FIELD][:255]
     return None
+
+
+get_username_from_request = import_string(config.GET_USERNAME_FROM_REQUEST_PATH)
 
 
 def get_user_attempts(request, get_username=get_username_from_request):
