@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.core.validators import validate_ipv46_address
 from django.core.exceptions import ValidationError
+from django.utils.module_loading import import_string
 
 from .connection import get_redis_connection
 from . import config
